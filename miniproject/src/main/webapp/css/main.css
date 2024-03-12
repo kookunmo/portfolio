@@ -1,0 +1,407 @@
+@charset "UTF-8";
+
+*{
+    margin:0;
+    padding:0;
+    color:#333;
+    font-family: 'Nanum Gothic', sans-serif;
+    background-color:rgba(255,255,255,0);
+}
+body{
+    background-color:#fffdfa;
+}
+html{
+    font-size: 62.5%;
+}
+a{
+    color:#333;
+    text-decoration: none;
+}
+a:hover{
+    color:#333;
+}
+ul,li,ol{
+    list-style: none;
+}
+#header{
+	display:block;
+    width:100%;
+    max-width:1240px;
+	margin:auto;
+    height:40px;
+    text-align: right;
+    line-height: 40px;
+}
+
+#header span{
+	font-size:1.5rem;
+}
+
+#header a {
+    margin-left: 10px;
+    font-size: 1.5rem;
+}
+#mainBanner{
+    width:100%;
+    height: 400px;
+    background-image: url("../img/mainbanner.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#mainBanner div{
+    overflow: hidden;
+    height: 400px;
+    width:100%;
+    font-size: 4.5rem;
+    color:#000;
+    max-width: 1240px;
+    margin:auto;
+    padding-top:330px;
+    font-family: 'Nanum Myeongjo', serif;
+    font-weight:bold;
+    
+}
+#title{
+    font-size:3rem;
+    font-weight: bold;
+    color:#e4932b;
+    
+}
+
+.titleSub{
+    width:100%;
+    max-width: 1240px;
+    height: 30px;
+    margin: 5px auto 5px;
+    line-height: 25px;
+}
+#userImg{
+    width:25px;
+    height:25px;
+    border-radius:25px;
+    overflow: hidden;
+    display: block;
+    float: left;
+}
+
+
+#user{
+    display: block;
+    width:70px;
+    height: 25px;
+    font-size: 14px;
+    float: left;
+    margin-left:10px;
+    font-weight: bold;
+}
+#writeDate{
+    display: block;
+    width:200px;
+    height: 25px;
+    font-size: 14px;
+    float: left;
+}
+.con_iud{
+    display: block;
+    width:150px;
+    height: 25px;
+    font-size: 1.3rem;
+    float:right;
+}
+
+
+#content{
+    width:100%;
+    max-width: 1240px;
+    margin:30px auto 100px;
+    padding-bottom:30px;
+    border-bottom:1px solid #777;
+}
+#con_header{
+    border-bottom: 1px solid #777;
+    margin-bottom: 10px;
+}
+.con_iud li{
+    float:right;
+    margin-left: 10px;
+}
+.mainSection{
+    width:100%;
+    max-width: 1220px;
+    margin:auto;
+    padding-top: 10px;
+    font-size: 1.6rem;
+    line-height: 22px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+.table{
+    width:100%;
+    max-width: 1220px;
+    margin: auto;
+    margin-top: 30px;
+}
+.tableHeader{
+    width: 100%;
+    max-width: 1220px;
+    margin:auto;
+    display: block;
+    height: 36px;
+    line-height: 36px;
+    border-bottom: 2px solid #333;
+
+}
+.tableHeader li{
+    display: block;
+    float: left;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.6rem;
+}
+.tableHeader li:nth-of-type(1){
+    width:74%;
+    text-align: left;
+}
+.tableHeader li:nth-of-type(2){
+    width:11%;
+    margin-left:2%;
+}
+.tableHeader li:nth-of-type(3){
+    width:11%;
+    margin-left: 2%;
+}
+.tableSub{
+    width: 100%;
+    max-width: 1220px;
+    margin:auto;
+    display: block;
+    height: 36px;
+    border-bottom: 1px solid #777;
+    line-height: 36px;
+}
+.tableSub li{
+    display: block;
+    float: left;
+    text-align: right;
+    font-size: 1.4rem;
+    height: 36px;
+}
+.tableSub li:nth-of-type(1){
+    width:74%;
+    text-align: left;
+    overflow: hidden;
+}
+.tableSub li:nth-of-type(2){
+    width:11%;
+    margin-left:2%;
+}
+.tableSub li:nth-of-type(3){
+    width:11%;
+    margin-left:2%;
+    overflow: hidden;
+}
+.pasing{
+    width:100%;
+    max-width: 500px;
+    margin: 10px auto 10px;
+    text-align: center;
+}
+.pasing a{
+    font-size: 1.3rem;
+    margin-left: 7px;
+    
+}
+.pasing a:first-child{
+    margin-left: 0;
+}
+.move{
+    font-weight: bold;
+}
+.move:hover{
+    text-decoration:underline;
+}
+.paz{
+    display: inline-block;
+    width:17px;
+    height:17px;
+    box-sizing:border-box;
+    border:#fff 1px solid;
+    line-height: 14px;
+}
+.paz:hover{
+	text-decoration:none !important;
+	}
+.paz_now{
+    display: inline-block;
+    width:17px;
+    height:17px;
+    box-sizing:border-box;
+    border:#777 1px solid;
+    line-height: 14px;
+	color:#e4932b;
+}
+.paz_now:hover{
+	text-decoration:none !important;
+    display: inline-block;
+    width:17px;
+    height:17px;
+    box-sizing:border-box;
+    border:#777 1px solid;
+    line-height: 14px;
+	color:#e4932b;
+}
+.paz:hover{
+    border:#777 1px solid;
+}
+.searchForm{
+    width:100%;
+    max-width:500px;
+    height: 30px;
+    margin:15px auto 100px;
+    text-align: center;
+}
+.searchSelect{
+    height: 25px;
+    vertical-align:middle;
+    font-size:1.3rem;
+}
+.searchText{
+    height: 25px;
+    vertical-align:middle;
+    font-size:1.3rem;
+}
+.searchBtn{
+    width:70px;
+    height:25px;
+    background-color: #ccc;
+    border-radius: 3px;
+    border:1px solid #333;
+    vertical-align:middle;
+    line-height: 25px;
+    font-size:1.3rem;
+}
+.searchBtn:hover{
+    background-color: #aaa;
+}
+
+footer{
+	width:100%;
+	height:150px;
+	background-color:#777;
+}
+.footCon{
+	width:100%;
+	max-width:1240px;
+	height:150px;
+	margin:auto;
+}
+
+.footTerms{
+	padding-top:40px;
+	width:150px;
+	height:85px;
+}
+.footTerms li a{
+	color:#fff;
+	font-size:1.5rem;
+}
+
+.footThx{
+	color:#fff;
+	font-size:1.5rem;
+}
+#listp{
+	font-size:1.3rem;
+}
+
+/* 모바일 부분 코딩 */
+@media screen and (max-width:1240px){
+	#header a{
+	margin-left:0;
+	margin-right:10px;
+	}
+	#header span{
+	margin-right:10px;}
+}
+
+
+@media screen and (max-width:738px){
+	.listBtn{
+	width:95% !important; 
+	margin-top:50px !important;
+	margin-bottom:0px !important;
+	}
+	.table{
+	margin-top:0px;
+	}
+	#header{
+	border-bottom:2px solid #e4932b;
+	background-color: rgba(255,255,255,0.7);
+	position:fixed;
+	top:0;
+	left:0;
+	}
+	#mainBanner{
+	display:none;
+	}
+	#content{
+	margin-top:50px;
+	}
+	.footCon{
+	width:95%;
+	}
+	.table{
+	width:95%;
+	}
+	.searchForm{
+	width:95%;
+	}
+	.mainSection{
+	width:95%;
+	}
+	#title{
+	margin-left:2.5%;
+	}
+	.titleSub{
+	width:95%;
+	}
+	.tableHeader li{
+		font-size:1.2rem;
+	}
+	.tableSub li, .tableSub a{
+		font-size:1.2rem;
+	}
+	.mainSection{
+		font-size: 1.4rem;
+	}
+}
+
+@media screen and (max-width:341px){
+	.table{
+	margin-top:50px;
+	}
+	.tableHeader li{
+		font-size:0.8rem;
+	}
+	
+	.tableSub li, .tableSub a{
+		font-size:0.8rem;
+	}
+	.searchSelect{
+		width:45px;
+		height:20px;
+		font-size:1rem;
+	}
+	.searchText{
+		width:100px;
+		height:20px;
+		font-size:1rem;
+	}
+	.searchBtn{
+		width:50px;
+		height:20px;
+		font-size:1rem;
+		line-height: 20px;
+	}
+	
+}

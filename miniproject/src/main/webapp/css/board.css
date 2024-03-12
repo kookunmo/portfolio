@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+      #titlebox, #contentbox {
+         width: 63%;
+         margin: 20px auto;
+         position:relative;
+      }
+      
+      #contentbox {
+         height: 800px;
+      }
+      
+      .btn {
+         border: 1px solid #dee2e6;
+         margin: 0 auto;
+      }
+      
+      .btn:hover {
+         border-color: #FFA500;
+      }
+      
+      .btn-wrapper {
+         text-align: center;
+      }
+
+      hr{
+         width: 63%;
+      }
+      #con{
+      position: absolute;
+         border: 1px solid black;
+         width: 1200px;
+         height: 1200px;
+         
+         
+      }
+      
+        #titlebox input:focus{
+    border-color: #f58b34; /* 주황색 */
+    box-shadow: 0 0 0 0.2rem rgba(255, 165, 0, 0.25); /* 주황색 테두리 추가 */
+     }
+     #contentbox:focus {
+     border-color: #f58b34; /* 주황색 */
+     box-shadow: 0 0 0 0.2rem rgba(255, 165, 0, 0.25); /* 주황색 테두리 추가 */
+     }
+     
+     .box1{width:63%;}

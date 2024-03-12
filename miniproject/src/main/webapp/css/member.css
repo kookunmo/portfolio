@@ -1,0 +1,60 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Nanum+Myeongjo&display=swap');
+html {
+    height: 100%;
+}
+
+body {
+    width:100%;
+    height:100%;
+    margin: 0;
+      padding-top: 200px;
+      padding-bottom: 40px;
+      font-family: "Nanum Gothic", arial, helvetica, sans-serif;
+      background-repeat: no-repeat;
+}
+
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+
+#btn-Yes{
+    background-color: #e4932b;
+    border: none;
+}
+
+.login .form-control {
+      position: relative;
+      height: auto;
+      -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+         box-sizing: border-box;
+      padding: 10px;
+      font-size: 16px;
+}
+.checkbox{
+    margin-right: 20px;
+    text-align: right;
+}
+.card-title{
+    margin-left: 30px;
+}
+
+.links{
+    text-align: center;
+    margin-bottom: 10px;
+}
+a{ 
+    color: #f58b34; text-decoration: none; 
+}
+.check{
+    color : red;
+}
+
+.text2{
+    color : blue;
+}
