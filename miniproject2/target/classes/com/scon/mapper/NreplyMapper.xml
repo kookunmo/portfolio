@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scon.mapper.NreplyMapper">
+      
+   <insert id="insert">
+      insert into Nreply(rno,bno,reply,replyer,password)
+      values(seq_reply.nextval,#{bno},#{reply},#{replyer},#{password})
+   </insert>   
+   
+   <select id="read" resultType="com.scon.domain.NreplyVO">
+      select * from Nreply where rno=#{rno}
+   </select>
+   
+   <delete id="delete">
+      delete Nreply where rno=#{rno}
+   </delete>
+   
+   <update id="update">
+      update Nreply set reply=#{reply},updateDate=sysdate
+      where rno=#{rno}
+   </update>   
+   
+   <select id="getListWithPaging" resultType="com.scon.domain.NreplyVO">
+    <![CDATA[
+        SELECT *
+FROM (
+    SELECT 
+        rownum AS rn, rno, bno, reply, replyer, password, rdate, updateDate
+    FROM (
+        SELECT 
+            rno, bno, reply, replyer, password, rdate, updateDate
+        FROM Nreply
+        WHERE bno=#{bno} AND rno > 0
+        ORDER BY rno desc
+    )
+)
+WHERE rn <= #{cri.pageNum} * #{cri.amount}
+    ]]>
+</select>
+
+
+   
+   <select id="getCountByBno" resultType="int">
+      select count(rno) from  Nreply where bno=#{bno}
+   </select>
+   
+   
+   
+</mapper>
