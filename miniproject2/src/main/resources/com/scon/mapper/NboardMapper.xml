@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scon.mapper.NboardMapper">
+	<!-- 게시글 목록을 조회하는 쿼리 -->
+
+	<!-- Nboard 테이블에서 bno가 양수인 레코드 중 처음 100개의 레코드를 조회 / 페이지당 최대 글 갯수? 너무 
+		많이 불러오면는 문제를 일으킬 수 잇어서 -->
+	<select id="getList" resultType="com.scon.domain.NboardVO">
+		<![CDATA[
+		select * from Nboard where bno>0 and rownum<=100
+		]]>
+	</select>
+	
+	<insert id="insert">
+    insert into nboard(bno, title, content, writer, wdate, readcount, ccode, fileurl, fileinfo, newlink)
+    values(nboard_seq.NEXTVAL, #{title}, #{content}, #{writer}, sysdate, #{readcount}, #{ccode}, #{fileurl}, #{fileinfo}, #{newlink})
+   </insert>
+	
+	
+	<update id="update">
+		update nboard 
+		set title=#{title},content=#{content},writer=#{writer},ccode=#{ccode},fileurl=#{fileurl},fileinfo=#{fileinfo},wdate=sysdate,newlink=#{newlink}
+		 where bno=#{bno} 
+	</update>
+	
+	<delete id="delete">
+		delete nboard where bno=#{bno}
+	</delete>
+
+	
+	<!-- 특정 게시글의 상세 정보를 조회하는 쿼리 -->
+	<select id="read" resultType="com.scon.domain.NboardVO">
+		select * from nboard where
+		bno=#{bno}
+	</select>
+	
+	<select id="getListCategory" resultType="com.scon.domain.NboardVO">
+      <![CDATA[
+      select bno,title,content,writer,wdate,readcount,ccode,fileurl,fileinfo,newlink
+      from (
+         select /*+index_desc(nboard bno)*/
+            rownum rn,bno,title,content,writer,wdate,readcount,ccode,fileurl,fileinfo,newlink
+         from nboard where ccode=#{ccode} and 
+          rownum<=#{pageNum} * #{amount}
+      )
+      where rn>(#{pageNum}-1)*#{amount} order by bno desc
+      ]]>
+   </select>
+   
+   <!--기정형  --><!--기정형  --><!--기정형  --><!--기정형  --><!--기정형  --><!--기정형  --><!--기정형  --><!--기정형  --><!--기정형  --><!--기정형  -->
+   <!-- 게시글의 총 개수를 조회하는 쿼리 -->
+   <select id="getTotalCount" resultType="int">
+      select count(*) from Nboard
+      where
+      <trim prefix="(" suffix=") AND " prefixOverrides="OR">
+         <!-- typeArr의 요소들을 기준으로 검색 조건을 추가하는 부분 -->
+         <foreach item='type' collection="typeArr">
+            <!-- 각 type에 따라 검색 조건을 추가 -->
+            <trim prefix="OR">
+               <choose>
+                  <!-- type이 'T'일 때, 제목(title)에 대한 검색 조건 추가 -->
+                  <when test="type == 'T'.toString()">
+                     title like '%'||#{keyword}||'%'
+                  </when>
+                  <!-- type이 'C'일 때, 내용(content)에 대한 검색 조건 추가 -->
+                  <when test="type == 'C'.toString()">
+                     content like '%'||#{keyword}||'%'
+                  </when>
+                  <!-- type이 'W'일 때, 작성자(writer)에 대한 검색 조건 추가 -->
+                  <when test="type == 'W'.toString()">
+                     writer like '%'||#{keyword}||'%'
+                  </when>
+               </choose>
+            </trim>
+         </foreach>
+      </trim>
+      <!-- 게시물 번호(bno)가 0보다 큰 조건 추가 -->
+      bno>0
+   </select>
+
+   <!-- 페이징 처리를 포함한 게시글 목록을 조회하는 쿼리 -->
+   <select id="getListWithPaging" resultType="com.scon.domain.NboardVO">
+	      <![CDATA[
+	      select bno,title,content,writer,wdate,readcount,ccode,fileurl,fileinfo,newlink
+	      from (
+	         select /*+index_desc(nboard bno)*/
+	            rownum rn,bno,title,content,writer,wdate,readcount,ccode,fileurl,fileinfo,newlink
+	         from nboard
+	         where 
+	      ]]>   
+	      <trim prefix="(" suffix=") AND " prefixOverrides="OR">
+	         <foreach item='type' collection="typeArr">
+	            <trim prefix="OR">
+	               <choose>
+	                  <when test="type == 'T'.toString()">
+	                     title like '%'||#{keyword}||'%'
+	                  </when>
+	                  <when test="type == 'C'.toString()">
+	                     content like '%'||#{keyword}||'%'
+	                  </when>
+	                  <when test="type == 'W'.toString()">
+	                     writer like '%'||#{keyword}||'%'
+	                  </when>
+	               </choose>
+	            </trim>
+	         </foreach>
+	      </trim>
+	         
+	         
+	      <![CDATA[
+	          rownum<=#{pageNum} * #{amount}
+	      )
+	      where rn>(#{pageNum}-1)*#{amount} order by bno desc
+	      ]]>
+   </select>
+   <!--기정형.end  --> <!--기정형.end  --> <!--기정형.end  --> <!--기정형.end  --> <!--기정형.end  --> <!--기정형.end  --> <!--기정형.end  --> <!--기정형.end  --> <!--기정형.end  -->
+   
+	
+	
+	
+	
+	
+	<select id="getIT" resultType="com.scon.domain.NboardVO">
+		<![CDATA[ select * from nboard where rownum<=7 and ccode = 1 order by readcount desc]]>
+	</select>
+	<select id="getAI" resultType="com.scon.domain.NboardVO">
+		<![CDATA[ select * from nboard where rownum<=7 and ccode = 2 order by readcount desc]]>
+	</select>
+	<select id="getSPACE" resultType="com.scon.domain.NboardVO">
+		<![CDATA[ select * from nboard where rownum<=7 and ccode = 3 order by readcount desc]]>
+	</select>
+	<select id="getNATURE" resultType="com.scon.domain.NboardVO">
+		<![CDATA[ select * from nboard where rownum<=7 and ccode = 4 order by readcount desc]]>
+	</select>
+	
+	<update id ="updateReadCount">
+		<![CDATA[update nboard set readcount=readcount+1 where bno=#{bno}]]>
+	</update>
+	
+
+</mapper>
